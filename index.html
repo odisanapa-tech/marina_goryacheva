@@ -10,9 +10,9 @@
 <style>
   :root{
     /* IntegratedBio-inspired: bone + lime accent + deep forest */
-    --bone:#EFEBDE;
-    --bone-2:#F5F1E4;
-    --bone-3:#E3DFD1;
+    --bone:#F2E7CE;
+    --bone-2:#F7EEDA;
+    --bone-3:#E4D6B4;
     --ink:#1B1A15;
     --ink-70:rgba(27,26,21,.72);
     --ink-45:rgba(27,26,21,.5);
@@ -59,7 +59,7 @@
   header.nav{
     position:fixed;top:0;left:0;right:0;z-index:50;
     padding:22px 0;
-    background:rgba(239,235,222,.72);
+    background:rgba(242,231,206,.72);
     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid transparent;
     transition:border-color .4s ease, padding .4s ease;
@@ -123,7 +123,7 @@
     display:inline-flex;align-items:center;gap:12px;
     padding:9px 18px 9px 14px;
     border:1px solid var(--ink-20);border-radius:99px;
-    background:rgba(245,241,228,.5);
+    background:rgba(247,238,218,.55);
   }
   .eyebrow-dot{
     width:8px;height:8px;border-radius:50%;background:var(--accent-dark);
@@ -207,7 +207,7 @@
     display:flex;justify-content:flex-end;
     margin-top:auto;padding-top:72px;
   }
-  .hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:18px}
+  .hero-actions{display:flex;flex-direction:row;align-items:center;flex-wrap:wrap;gap:16px;justify-content:flex-end}
   .btn-big{
     display:inline-flex;align-items:center;gap:14px;
     font-size:15px;font-weight:500;
@@ -670,9 +670,6 @@
           <span class="circle">
             <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
           </span>
-        </a>
-        <a href="#formats" class="btn-ghost">
-          <span class="dot"></span> Три формата — выберите свой
         </a>
       </div>
     </div>
