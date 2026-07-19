@@ -153,12 +153,12 @@
   }
   .ns-value{font-size:15px;color:var(--ink);font-weight:500;margin-top:2px}
 
-  .hero-title-wrap{max-width:62%}
+  .hero-title-wrap{max-width:58%}
   h1.hero-title{
     font-family:'Instrument Serif',serif;
     font-weight:400;
-    font-size:clamp(52px,7.6vw,124px);
-    line-height:.94;letter-spacing:-.03em;color:var(--ink);
+    font-size:clamp(38px,4.6vw,74px);
+    line-height:.98;letter-spacing:-.028em;color:var(--ink);
   }
   h1.hero-title .word{
     display:inline-block;overflow:hidden;vertical-align:top;
@@ -313,12 +313,11 @@
     display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:70px;
     align-items:stretch;
   }
-  .fmt-wrap{position:relative;display:flex;height:100%}
+  .fmt-wrap{position:relative;display:grid;height:100%}
   .fmt{
     --r:26px;
     --n:56px;
     position:relative;
-    flex:1;
     padding:28px 30px 34px;
     display:flex;flex-direction:column;
     min-height:380px;
@@ -354,7 +353,7 @@
 
   .fmt-head{
     display:flex;justify-content:space-between;align-items:center;
-    gap:12px;margin-bottom:auto;
+    gap:12px;margin-bottom:auto;flex-wrap:wrap;
   }
   .fmt-tag{
     display:inline-flex;align-items:center;gap:8px;
@@ -376,22 +375,12 @@
     margin:80px 0 26px;max-width:15ch;
   }
   .fmt p{color:var(--ink-70);font-size:15.5px;line-height:1.55;margin-bottom:22px}
-  .fmt-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-right:70px}
+  .fmt-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-right:78px}
   .fmt-meta span{
     font-size:12px;letter-spacing:.01em;
     padding:6px 12px;border-radius:99px;
     background:transparent;color:var(--ink-70);
     border:1px solid var(--ink-20);
-  }
-  .fmt-link{
-    position:absolute;bottom:34px;left:30px;
-    font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
-    color:var(--ink);font-weight:500;
-  }
-  .fmt.dark .fmt-link{color:var(--cream)}
-  .fmt-link::after{
-    content:'';display:inline-block;width:20px;height:1px;
-    background:currentColor;margin-left:8px;vertical-align:middle;
   }
 
   /* the arrow button lives in the notch */
@@ -835,7 +824,7 @@
 <section class="block" style="padding-top:40px">
   <div class="wrap">
     <div class="kicker rv"><span class="num">02</span>Внутри</div>
-    <h2 class="rv">Что происходит <em>в&nbsp;комнате</em></h2>
+    <h2 class="rv">Что происходит <em>в&nbsp;группе</em></h2>
     <div class="two-col">
       <p class="rv">Не урок вокала. <b>Петь красиво не нужно — и не нужно уметь.</b> Никто не будет слушать вас по очереди и говорить, что вы фальшивите.</p>
       <p class="rv">Мы дышим. Разминаем то, что зажалось. Звучим — сначала тихо, потом как пойдёт. Иногда смеёмся, иногда молчим. <b>Через час вы выходите другим человеком</b>, и это не метафора: голос и состояние связаны напрямую, тело знает это быстрее головы.</p>
@@ -855,12 +844,11 @@
         <article class="fmt">
           <div class="fmt-head">
             <div class="fmt-tag">Формат</div>
-            <div class="fmt-date">60 · Раз в неделю</div>
+            <div class="fmt-date">60 минут</div>
           </div>
           <h3>Час, пока ребёнок поёт</h3>
           <p>Вы уже здесь. Не нужно ничего выкраивать, договариваться с мужем, искать окно. Ребёнок на занятии — вы в соседней комнате, для себя.</p>
-          <div class="fmt-meta"><span>6–8 мам</span><span>цикл 8 встреч</span></div>
-          <div class="fmt-link">Подробнее</div>
+          <div class="fmt-meta"><span>раз в неделю</span><span>6–8 мам</span><span>цикл 8 встреч</span></div>
         </article>
         <a href="#contact" class="fmt-arrow" aria-label="Записаться">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -872,12 +860,11 @@
         <article class="fmt dark">
           <div class="fmt-head">
             <div class="fmt-tag">Формат</div>
-            <div class="fmt-date">90 · Дважды в месяц</div>
+            <div class="fmt-date">90 минут</div>
           </div>
           <h3>Круг раз в две недели</h3>
           <p>Отдельное время, вечер. Вы приходите не «заодно», а специально. Полтора часа — этого хватает, чтобы дойти до глубины, а не только выдохнуть.</p>
-          <div class="fmt-meta"><span>6–10 мам</span><span>цикл 6 встреч</span></div>
-          <div class="fmt-link">Подробнее</div>
+          <div class="fmt-meta"><span>раз в две недели</span><span>6–10 мам</span><span>цикл 6 встреч</span></div>
         </article>
         <a href="#contact" class="fmt-arrow" aria-label="Записаться">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -893,8 +880,7 @@
           </div>
           <h3>Свой круг</h3>
           <p>Для тех, кто уже прошёл цикл и не хочет расходиться. Постоянный состав, встречи дважды в месяц, чат между ними. Не курс — место, куда возвращаются.</p>
-          <div class="fmt-meta"><span>постоянный состав</span><span>абонемент</span></div>
-          <div class="fmt-link">Подробнее</div>
+          <div class="fmt-meta"><span>2 раза в месяц</span><span>постоянный состав</span><span>абонемент</span></div>
         </article>
         <a href="#contact" class="fmt-arrow" aria-label="Записаться">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -922,7 +908,7 @@
         <div class="about-tags rv">
           <span>Вокальный педагог</span>
           <span>Режиссёр мероприятий</span>
-          <span>Мама троих</span>
+          <span>Мама троих детей</span>
           <span>Мытищи</span>
         </div>
       </div>
