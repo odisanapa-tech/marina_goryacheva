@@ -162,20 +162,28 @@
     max-width:13em;
   }
 
-  /* ——— hero illustration (right) ——— */
+  /* ——— hero illustration (right column of grid) ——— */
   .hero-illo{
-    position:absolute;
-    right:4vw;top:50%;transform:translateY(-50%);
-    width:min(34vw,430px);aspect-ratio:4/5;
-    pointer-events:none;z-index:1;
+    position:relative;
+    align-self:center;justify-self:end;
+    width:100%;max-width:440px;aspect-ratio:4/5;
+    pointer-events:none;
   }
   .hero-illo::before{
-    content:'';position:absolute;inset:-6% -10%;z-index:-1;
-    background:radial-gradient(circle,rgba(184,220,122,.28) 0%,transparent 65%);
+    content:'';position:absolute;inset:-8% -12%;z-index:0;
+    background:
+      radial-gradient(circle at 50% 45%,rgba(184,220,122,.32) 0%,transparent 55%),
+      radial-gradient(circle at 30% 80%,rgba(198,144,120,.18) 0%,transparent 55%);
+    filter:blur(4px);
   }
   .hero-illo img{
-    width:100%;height:100%;object-fit:cover;display:block;
-    border-radius:20px;
+    position:relative;z-index:1;
+    width:100%;height:100%;object-fit:cover;object-position:center 30%;
+    display:block;
+    -webkit-mask-image:radial-gradient(ellipse 78% 82% at 50% 50%,#000 55%,rgba(0,0,0,.55) 78%,transparent 100%);
+            mask-image:radial-gradient(ellipse 78% 82% at 50% 50%,#000 55%,rgba(0,0,0,.55) 78%,transparent 100%);
+    mix-blend-mode:multiply;
+    filter:saturate(.95);
   }
   h1.hero-title .word{
     display:inline-block;overflow:hidden;vertical-align:top;
@@ -228,7 +236,13 @@
     pointer-events:none;z-index:0;
   }
   .hero-scene svg{width:100%;height:100%;display:block;overflow:visible}
-  .hero-content{position:relative;z-index:2}
+  .hero-content{
+    position:relative;z-index:2;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(320px,440px);
+    gap:60px;align-items:stretch;
+  }
+  .hero-copy{display:flex;flex-direction:column;min-height:100%}
 
   @keyframes bob{
     0%,100%{transform:translateY(0)}
@@ -545,28 +559,23 @@
 
   /* Responsive */
   @media(max-width:1100px){
-    .hero-title-wrap{max-width:62%}
-    .hero-bottom{max-width:62%}
-    .hero-illo{width:34vw;right:3vw}
+    .hero-content{grid-template-columns:1fr minmax(280px,360px);gap:40px}
   }
   @media(max-width:960px){
     .wrap{padding:0 24px}
     .nav-links{display:none}
     .burger{display:block}
     .hero{padding:130px 0 40px;min-height:auto}
+    .hero-content{grid-template-columns:1fr;gap:32px}
     .hero-top{flex-direction:column;align-items:flex-start;gap:16px}
     .hero-title-wrap{max-width:none}
     .hero-bottom{justify-content:flex-start;padding-top:40px;max-width:none}
     .hero-actions{align-items:flex-start}
     .next-start{width:100%}
-    .hero-scene{
-      position:relative;right:auto;top:auto;transform:none;
-      width:100%;margin:40px auto 0;opacity:.95;
-    }
     h1.hero-title{max-width:none}
     .hero-illo{
-      position:relative;right:auto;top:auto;transform:none;
-      width:100%;max-width:360px;margin:32px auto 0;
+      justify-self:center;max-width:340px;order:2;
+      margin-top:16px;
     }
     .two-col{grid-template-columns:1fr;gap:32px}
     .split{grid-template-columns:1fr;gap:40px}
@@ -621,6 +630,7 @@
 <section class="hero">
   <div class="wrap hero-content">
 
+   <div class="hero-copy">
     <div class="hero-top">
       <div class="eyebrow rv">
         <span class="eyebrow-dot"></span>
@@ -666,10 +676,11 @@
         </a>
       </div>
     </div>
-  </div>
+   </div>
 
-  <div class="hero-illo" aria-hidden="true">
-    <img src="hero-singer.webp" alt="">
+   <div class="hero-illo" aria-hidden="true">
+     <img src="hero-singer.webp" alt="">
+   </div>
   </div>
 </section>
 
