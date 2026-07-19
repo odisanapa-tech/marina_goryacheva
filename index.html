@@ -196,11 +196,9 @@
   }
 
   .hero-bottom{
-    display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;
+    display:flex;justify-content:flex-end;
     margin-top:auto;padding-top:72px;
   }
-  .hero-lead{max-width:28em;font-size:20px;line-height:1.55;color:var(--ink-70)}
-  .hero-lead b{color:var(--ink);font-weight:500}
   .hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:18px}
   .btn-big{
     display:inline-flex;align-items:center;gap:14px;
@@ -300,6 +298,13 @@
   .two-col p{color:var(--ink-70);font-size:19px;line-height:1.55;max-width:34em}
   .two-col p + p{margin-top:1.2em}
   .two-col p b{color:var(--ink);font-weight:500}
+
+  .lead-intro{
+    font-size:clamp(20px,1.9vw,26px);line-height:1.45;
+    color:var(--ink);max-width:30em;margin-top:32px;
+    letter-spacing:-.005em;
+  }
+  .lead-intro b{color:var(--accent-dark);font-weight:500}
 
   /* split — text left (title + copy + list), illustration right */
   .split{
@@ -551,7 +556,7 @@
     .hero{padding:130px 0 40px;min-height:auto}
     .hero-top{flex-direction:column;align-items:flex-start;gap:16px}
     .hero-title-wrap{max-width:none}
-    .hero-bottom{grid-template-columns:1fr;gap:32px;padding-top:40px;max-width:none}
+    .hero-bottom{justify-content:flex-start;padding-top:40px;max-width:none}
     .hero-actions{align-items:flex-start}
     .next-start{width:100%}
     .hero-scene{
@@ -638,9 +643,6 @@
     </div>
 
     <div class="hero-bottom">
-      <p class="hero-lead rv">
-        <b>Час в неделю</b>, когда никто ничего от вас не хочет. Можно дышать, звучать и молчать, если так лучше. Не урок вокала — комната, куда возвращаются.
-      </p>
       <div class="hero-actions rv">
         <div class="next-start">
           <span class="ns-icon">
@@ -667,7 +669,7 @@
   </div>
 
   <div class="hero-illo" aria-hidden="true">
-    <img src="hero-singer.png" alt="">
+    <img src="hero-singer.webp" alt="">
   </div>
 </section>
 
@@ -697,7 +699,7 @@
         </ul>
       </div>
       <div class="split-illo rv">
-        <img src="mom-kids.png" alt="">
+        <img src="mom-kids.webp" alt="">
       </div>
     </div>
   </div>
@@ -708,8 +710,9 @@
   <div class="wrap">
     <div class="kicker rv"><span class="num">02</span>Внутри</div>
     <h2 class="rv">Что происходит <em>в&nbsp;группе</em></h2>
+    <p class="lead-intro rv"><b>Час в неделю</b>, когда никто ничего от вас не хочет. Можно дышать, звучать и молчать, если так лучше. Не урок вокала — комната, куда возвращаются.</p>
     <div class="two-col">
-      <p class="rv">Не урок вокала. <b>Петь красиво не нужно — и не нужно уметь.</b> Никто не будет слушать вас по очереди и говорить, что вы фальшивите.</p>
+      <p class="rv"><b>Петь красиво не нужно — и не нужно уметь.</b> Никто не будет слушать вас по очереди и говорить, что вы фальшивите.</p>
       <p class="rv">Мы дышим. Разминаем то, что зажалось. Звучим — сначала тихо, потом как пойдёт. Иногда смеёмся, иногда молчим. <b>Через час вы выходите другим человеком</b>, и это не метафора: голос и состояние связаны напрямую, тело знает это быстрее головы.</p>
     </div>
   </div>
