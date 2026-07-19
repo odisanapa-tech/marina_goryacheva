@@ -159,7 +159,23 @@
     font-weight:400;
     font-size:clamp(36px,4.2vw,62px);
     line-height:1.04;letter-spacing:-.022em;color:var(--ink);
-    max-width:15em;
+    max-width:13em;
+  }
+
+  /* ——— hero illustration (right) ——— */
+  .hero-illo{
+    position:absolute;
+    right:4vw;top:50%;transform:translateY(-50%);
+    width:min(34vw,430px);aspect-ratio:4/5;
+    pointer-events:none;z-index:1;
+  }
+  .hero-illo::before{
+    content:'';position:absolute;inset:-6% -10%;z-index:-1;
+    background:radial-gradient(circle,rgba(184,220,122,.28) 0%,transparent 65%);
+  }
+  .hero-illo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    border-radius:20px;
   }
   h1.hero-title .word{
     display:inline-block;overflow:hidden;vertical-align:top;
@@ -285,14 +301,25 @@
   .two-col p + p{margin-top:1.2em}
   .two-col p b{color:var(--ink);font-weight:500}
 
-  /* split — title on left, list on right, both aligned to top */
+  /* split — text left (title + copy + list), illustration right */
   .split{
-    display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:start;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start;
   }
   .split-left h2{margin-bottom:36px}
   .split-copy p{color:var(--ink-70);font-size:19px;line-height:1.55;max-width:32em}
   .split-copy p + p{margin-top:1.2em}
   .split-copy p b{color:var(--ink);font-weight:500}
+  .split-left .quiet{margin-top:48px}
+
+  .split-illo{position:relative}
+  .split-illo::before{
+    content:'';position:absolute;inset:-6% -8%;z-index:-1;
+    background:radial-gradient(circle at 60% 40%,rgba(198,74,46,.16) 0%,transparent 65%);
+  }
+  .split-illo img{
+    width:100%;height:auto;display:block;
+    border-radius:16px;
+  }
 
   .quiet{list-style:none;border-top:1px solid var(--ink-20);margin-top:0}
   .quiet li{
@@ -513,8 +540,9 @@
 
   /* Responsive */
   @media(max-width:1100px){
-    .hero-title-wrap{max-width:70%}
-    .hero-bottom{max-width:70%}
+    .hero-title-wrap{max-width:62%}
+    .hero-bottom{max-width:62%}
+    .hero-illo{width:34vw;right:3vw}
   }
   @media(max-width:960px){
     .wrap{padding:0 24px}
@@ -531,8 +559,13 @@
       width:100%;margin:40px auto 0;opacity:.95;
     }
     h1.hero-title{max-width:none}
+    .hero-illo{
+      position:relative;right:auto;top:auto;transform:none;
+      width:100%;max-width:360px;margin:32px auto 0;
+    }
     .two-col{grid-template-columns:1fr;gap:32px}
-    .split{grid-template-columns:1fr;gap:32px}
+    .split{grid-template-columns:1fr;gap:40px}
+    .split-illo{max-width:420px;margin:0 auto}
     .formats{grid-template-columns:1fr;gap:16px}
     .fmt{min-height:auto}
     .fmt h3{margin-top:48px;font-size:26px}
@@ -633,6 +666,9 @@
     </div>
   </div>
 
+  <div class="hero-illo" aria-hidden="true">
+    <img src="hero-singer.png" alt="">
+  </div>
 </section>
 
 <!-- ═══════════ MARQUEE ═══════════ -->
@@ -654,12 +690,15 @@
           <p>Час в коридоре. Телефон, чужие разговоры, список дел в голове. Потом домой — уроки, ужин, посуда, «мам, а где мои носки». <b>И так каждый день, годами.</b></p>
           <p>Вы не устали. Вы просто давно не были там, где вас не зовут.</p>
         </div>
+        <ul class="quiet rv">
+          <li>Голос садится не только у поющих. Он садится у тех, кто весь день говорит «сейчас», «подожди», «я иду».</li>
+          <li>Плечи вы не опускали с 2019 года. Проверьте прямо сейчас.</li>
+          <li>Последний раз вы делали что-то бесполезное и приятное — когда?</li>
+        </ul>
       </div>
-      <ul class="quiet rv">
-        <li>Голос садится не только у поющих. Он садится у тех, кто весь день говорит «сейчас», «подожди», «я иду».</li>
-        <li>Плечи вы не опускали с 2019 года. Проверьте прямо сейчас.</li>
-        <li>Последний раз вы делали что-то бесполезное и приятное — когда?</li>
-      </ul>
+      <div class="split-illo rv">
+        <img src="mom-kids.png" alt="">
+      </div>
     </div>
   </div>
 </section>
