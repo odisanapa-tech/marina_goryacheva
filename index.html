@@ -199,6 +199,7 @@
     bottom:.06em;height:.13em;
     background:var(--accent);opacity:.55;z-index:-1;border-radius:2px;
   }
+  h1.hero-title .line-italic{display:block;margin-top:.28em}
 
   .hero-bottom{
     display:flex;justify-content:flex-end;
@@ -317,6 +318,21 @@
   }
   .lead-intro b{color:var(--accent-dark);font-weight:500}
 
+  /* narrower room-block */
+  .room-wrap{max-width:1080px}
+  .room-h2{font-size:clamp(32px,4vw,54px)}
+  .room-cols{grid-template-columns:1fr 1fr;gap:60px;margin-top:48px}
+  .bullet{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .bullet li{
+    position:relative;padding-left:24px;
+    color:var(--ink-70);font-size:17.5px;line-height:1.5;
+  }
+  .bullet li::before{
+    content:'';position:absolute;left:0;top:.6em;
+    width:8px;height:8px;border-radius:50%;background:var(--accent-dark);
+  }
+  .bullet li b{color:var(--ink);font-weight:500}
+
   /* split — text left (title + copy + list), illustration right */
   .split{
     display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start;
@@ -419,7 +435,8 @@
     font-size:32px;line-height:1.05;letter-spacing:-.02em;
     margin:80px 0 26px;max-width:15ch;
   }
-  .fmt p{color:var(--ink-70);font-size:15.5px;line-height:1.55;margin-bottom:22px}
+  .fmt p{color:var(--ink-70);font-size:15.5px;line-height:1.55;margin-bottom:22px;overflow-wrap:break-word;hyphens:auto}
+  .fmt h3{overflow-wrap:break-word}
   .fmt-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-right:78px}
   .fmt-meta span{
     font-size:12px;letter-spacing:.01em;
@@ -442,12 +459,12 @@
 
   /* ═══════════ ABOUT ═══════════ */
   .about-grid{
-    display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start;
+    display:grid;grid-template-columns:.7fr 1.3fr;gap:60px;align-items:start;
     margin-top:60px;
   }
   .portrait{
     aspect-ratio:4/5;background:var(--bone-2);border-radius:24px;
-    overflow:hidden;position:relative;
+    overflow:hidden;position:relative;max-width:320px;
     display:flex;align-items:center;justify-content:center;
     color:var(--ink-45);font-size:13px;text-align:center;padding:20px;
   }
@@ -463,10 +480,15 @@
   .about-txt p{color:var(--ink-70);font-size:18.5px;line-height:1.55;max-width:32em}
   .about-txt p + p{margin-top:1.2em}
   .about-txt p b{color:var(--ink);font-weight:500}
-  .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
-  .about-tags span{
-    font-size:13px;padding:8px 14px;border-radius:99px;
-    background:var(--bone-2);color:var(--ink);border:1px solid var(--ink-20);
+
+  .about-highlight{
+    font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    font-size:clamp(22px,2.3vw,32px)!important;
+    line-height:1.28;letter-spacing:-.01em;
+    color:var(--accent-dark)!important;
+    max-width:26em!important;
+    margin-top:36px!important;
+    padding-top:32px;border-top:1px solid var(--ink-20);
   }
 
   /* ═══════════ PULL — inner dark card on light section ═══════════ */
@@ -479,6 +501,7 @@
     display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;
     max-width:1080px;margin:0 auto;
   }
+  .pull-card + .pull-card{margin-top:24px}
   .pull-card::before{
     content:'';position:absolute;left:-8%;top:-30%;
     width:70%;aspect-ratio:1;
@@ -577,6 +600,9 @@
       margin-top:16px;
     }
     .two-col{grid-template-columns:1fr;gap:32px}
+    .room-cols{grid-template-columns:1fr;gap:28px;margin-top:32px}
+    .room-h2{font-size:clamp(28px,7vw,40px)}
+    .bullet li{font-size:16.5px}
     .split{grid-template-columns:1fr;gap:40px}
     .split-illo{max-width:420px;margin:0 auto}
     .formats{grid-template-columns:1fr;gap:16px}
@@ -584,7 +610,8 @@
     .fmt h3{margin-top:48px;font-size:26px}
     .fmt-meta{padding-right:60px}
     .about-grid{grid-template-columns:1fr;gap:36px}
-    .portrait{max-width:340px}
+    .portrait{max-width:280px}
+    .about-highlight{font-size:20px!important;padding-top:24px;margin-top:28px!important}
     .pull-block{padding:40px 0}
     .pull-card{grid-template-columns:1fr;gap:8px;padding:64px 32px;border-radius:24px}
     .pull-mark{font-size:80px}
@@ -645,9 +672,11 @@
         <span class="word"><span>вы&nbsp;</span></span>
         <span class="word"><span>сидите&nbsp;</span></span>
         <span class="word"><span>в&nbsp;</span></span>
-        <span class="word"><span>коридоре.</span></span><br>
-        <span class="word"><span><em>А&nbsp;если&nbsp;бы&nbsp;</em></span></span>
-        <span class="word"><span><em>вы&nbsp;тоже&nbsp;пели?</em></span></span>
+        <span class="word"><span>коридоре.</span></span>
+        <span class="line-italic">
+          <span class="word"><span><em>А&nbsp;если&nbsp;бы&nbsp;</em></span></span>
+          <span class="word"><span><em>вы&nbsp;тоже&nbsp;пели?</em></span></span>
+        </span>
       </h1>
     </div>
 
@@ -694,15 +723,13 @@
     <div class="kicker rv"><span class="num">01</span>Точка входа</div>
     <div class="split">
       <div class="split-left">
-        <h2 class="rv">Вы приводите ребёнка. <em>И&nbsp;ждёте.</em></h2>
+        <h2 class="rv">Вы приводите ребёнка на урок <em>и&nbsp;ждёте час в коридоре или машине.</em></h2>
         <div class="split-copy rv">
-          <p>Час в коридоре. Телефон, чужие разговоры, список дел в голове. Потом домой — уроки, ужин, посуда, «мам, а где мои носки». <b>И так каждый день, годами.</b></p>
-          <p>Вы не устали. Вы просто давно не были там, где вас не зовут.</p>
+          <p>Телефон, чужие разговоры, список дел в голове. Потом домой, где уроки, ужин, посуда, «мам, а где мои носки». <b>И так каждый день, годами от вас вечно что-то надо!</b> Вам срочно надо туда, где от вас ничего не ждут.</p>
         </div>
         <ul class="quiet rv">
-          <li>Голос садится не только у поющих. Он садится у тех, кто весь день говорит «сейчас», «подожди», «я иду».</li>
-          <li>Плечи вы не опускали с 2019 года. Проверьте прямо сейчас.</li>
-          <li>Последний раз вы делали что-то бесполезное и приятное — когда?</li>
+          <li>Плечи вы не расслабляли с 2019 года. Проверьте это прямо сейчас.</li>
+          <li>Когда в последний раз вы делали что-то бесполезное и приятное?</li>
         </ul>
       </div>
       <div class="split-illo rv">
@@ -713,14 +740,18 @@
 </section>
 
 <!-- ═══════════ ROOM ═══════════ -->
-<section class="block" style="padding-top:40px">
-  <div class="wrap">
+<section class="block room-block" style="padding-top:40px">
+  <div class="wrap room-wrap">
     <div class="kicker rv"><span class="num">02</span>Внутри</div>
-    <h2 class="rv">Что происходит <em>в&nbsp;группе</em></h2>
-    <p class="lead-intro rv"><b>Час в неделю</b>, когда никто ничего от вас не хочет. Можно дышать, звучать и молчать, если так лучше. Не урок вокала — комната, куда возвращаются.</p>
-    <div class="two-col">
-      <p class="rv"><b>Петь красиво не нужно — и не нужно уметь.</b> Никто не будет слушать вас по очереди и говорить, что вы фальшивите.</p>
-      <p class="rv">Мы дышим. Разминаем то, что зажалось. Звучим — сначала тихо, потом как пойдёт. Иногда смеёмся, иногда молчим. <b>Через час вы выходите другим человеком</b>, и это не метафора: голос и состояние связаны напрямую, тело знает это быстрее головы.</p>
+    <h2 class="rv room-h2">Что происходит <em>в&nbsp;группе</em></h2>
+    <p class="lead-intro rv"><b>Час в неделю</b>, когда никто ничего от вас не хочет. Можно дышать, звучать, смеяться и молчать. Это не урок вокала. Это пространство, в котором вы возвращаете себе себя.</p>
+    <div class="two-col room-cols">
+      <p class="rv"><b>Петь красиво не нужно и не нужно уметь.</b> Никто не будет говорить, что вы фальшивите.</p>
+      <ul class="bullet rv">
+        <li>Будем дышать. Расслаблять то, что зажалось в теле.</li>
+        <li>Учиться получать удовольствие от собственного голоса.</li>
+        <li>А через час вы выходите другим человеком: <b>голос и ваше состояние связаны напрямую.</b></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -739,7 +770,7 @@
             <div class="fmt-tag">Формат</div>
           </div>
           <h3>Час, пока ребёнок поёт</h3>
-          <p>Вы уже здесь. Не нужно ничего выкраивать, договариваться с мужем, искать окно. Ребёнок на занятии — вы в соседней комнате, для себя.</p>
+          <p>Вы уже здесь. Не нужно ничего выкраивать, договариваться с мужем, искать окно возможностей. Пока ребёнок на занятии, вы в соседней комнате создаёте «счастливую маму».</p>
           <div class="fmt-meta"><span>60 минут</span><span>раз в неделю</span><span>6–8 мам</span><span>цикл 8 встреч</span></div>
         </article>
         <a href="#contact" class="fmt-arrow" aria-label="Записаться">
@@ -754,7 +785,7 @@
             <div class="fmt-tag">Формат</div>
           </div>
           <h3>Круг раз в две недели</h3>
-          <p>Отдельное время, вечер. Вы приходите не «заодно», а специально. Полтора часа — этого хватает, чтобы дойти до глубины, а не только выдохнуть.</p>
+          <p>Вы приходите не «заодно с ребёнком», а специально для себя. Полтора часа в кругу единомышленниц. Этого достаточно, чтобы перезагрузиться, а не только выдохнуть.</p>
           <div class="fmt-meta"><span>90 минут</span><span>раз в две недели</span><span>6–10 мам</span><span>цикл 6 встреч</span></div>
         </article>
         <a href="#contact" class="fmt-arrow" aria-label="Записаться">
@@ -768,8 +799,8 @@
           <div class="fmt-head">
             <div class="fmt-tag">Формат</div>
           </div>
-          <h3>Свой круг</h3>
-          <p>Для тех, кто уже прошёл цикл и не хочет расходиться. Постоянный состав, встречи дважды в месяц, чат между ними. Не курс — место, куда возвращаются.</p>
+          <h3>Круг среди своих</h3>
+          <p>Для тех, кто уже прошёл занятия «Круг раз в две недели» и не хочет расходиться. Постоянный состав, встречи дважды в месяц, закрытый чат для общения и выполнения голосовых и телесных практик. Это место силы, куда хочется возвращаться.</p>
           <div class="fmt-meta"><span>2 раза в месяц</span><span>постоянный состав</span><span>абонемент</span></div>
         </article>
         <a href="#contact" class="fmt-arrow" aria-label="Записаться">
@@ -792,27 +823,30 @@
       </div>
       <div class="about-txt">
         <p class="rv">Вокальный педагог, режиссёр мероприятий. Работаю с голосом много лет, владею разными техниками и методиками.</p>
-        <p class="rv"><b>Мама троих детей.</b> Я знаю, как быть в ресурсе по расписанию, потому что «больше некому». Знаю про «мне некогда» и про «потом пойду, когда они подрастут».</p>
-        <p class="rv">Эту группу у меня просят давно — мамы, которые водят ко мне детей. Я долго думала, как её сделать так, чтобы это было не «ещё одно занятие», а <b>то самое место, где можно выдохнуть.</b> Кажется, придумала.</p>
+        <p class="rv"><b>Мама троих детей.</b> Я знаю, как быть в ресурсе по расписанию, потому что «больше некому». Знаю про то, как мамы живут в состоянии дефицита «всё лучшее детям».</p>
+        <p class="rv">А ведь только из состояния внутренней наполненности мамы способны передавать детям важные реликвии: <b>любовь, заботу и ласку.</b></p>
 
-        <div class="about-tags rv">
-          <span>Вокальный педагог</span>
-          <span>Режиссёр мероприятий</span>
-          <span>Мама троих детей</span>
-          <span>Мытищи</span>
-        </div>
+        <p class="about-highlight rv">Эти группы для мам я создала с большой любовью и заботой. Они стали местом силы для многих мам.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ PULL — inner dark card on light section ═══════════ -->
+<!-- ═══════════ PULL — inner dark cards on light section ═══════════ -->
 <section class="pull-block">
   <div class="wrap">
     <div class="pull-card">
       <div class="pull-mark rv" aria-hidden="true">“</div>
       <div class="pull-body">
-        <p class="pull rv">Вы возите ребёнка на вокал, потому что верите: <em>голос — это про свободу</em>. Так почему только у него?</p>
+        <p class="pull rv">Вы возите ребёнка на вокал, потому что верите, что <em>голос даст ему свободу и уверенность</em>. Так почему это только для него?</p>
+        <div class="pull-signoff rv">Марина Горячева</div>
+      </div>
+    </div>
+
+    <div class="pull-card pull-card-b">
+      <div class="pull-mark rv" aria-hidden="true">“</div>
+      <div class="pull-body">
+        <p class="pull rv"><em>Счастливая мама — счастливый ребёнок.</em> И только в такой последовательности.</p>
         <div class="pull-signoff rv">Марина Горячева</div>
       </div>
     </div>
@@ -824,7 +858,7 @@
   <div class="wrap">
     <div class="kicker rv"><span class="num">05</span>Дальше</div>
     <h2 class="rv">Приходите, <em>даже&nbsp;если&nbsp;сомневаетесь.</em></h2>
-    <p class="rv">Напишите, какой формат вам ближе, и я расскажу подробности, ближайшие даты и как всё устроено. Если не знаете, какой формат выбрать — напишите, разберёмся вместе.</p>
+    <p class="rv">Напишите, какой формат вам ближе — я расскажу о нём подробнее и подскажу, какой подходит именно вам.</p>
     <a href="#" class="btn-big rv">
       Написать Марине
       <span class="circle">
