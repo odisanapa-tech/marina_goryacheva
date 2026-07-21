@@ -104,8 +104,24 @@
   .cta-pill .arrow{width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center}
   .cta-pill svg{width:100%;height:100%;transition:transform .3s ease}
   .cta-pill:hover svg{transform:translateX(3px)}
-  .burger{display:none;background:none;border:0;cursor:pointer;padding:6px}
-  .burger span{display:block;width:22px;height:1.5px;background:var(--ink);margin:5px 0}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:6px;z-index:60;position:relative}
+  .burger span{display:block;width:22px;height:1.5px;background:var(--ink);margin:5px 0;transition:transform .3s ease,opacity .3s ease}
+  .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .burger.open span:nth-child(2){transform:translateY(-6.5px) rotate(-45deg)}
+
+  /* mobile nav overlay */
+  .mobile-menu{
+    position:fixed;inset:0;z-index:55;
+    background:var(--bone);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;
+    padding:80px 24px 40px;
+    opacity:0;pointer-events:none;transition:opacity .3s ease;
+  }
+  .mobile-menu.open{opacity:1;pointer-events:auto}
+  .mobile-menu a{
+    font-family:'Instrument Serif',serif;font-size:32px;color:var(--ink);
+  }
+  .mobile-menu .cta-pill{font-family:'Inter Tight',sans-serif;font-size:16px;margin-top:16px}
 
   /* ═══════════ HERO ═══════════ */
   .hero{
@@ -612,9 +628,9 @@
     .split{grid-template-columns:1fr;gap:40px}
     .split-illo{max-width:420px;margin:0 auto}
     .formats{grid-template-columns:1fr;gap:16px}
-    .fmt{min-height:auto}
-    .fmt h3{margin-top:48px;font-size:26px}
-    .fmt-meta{padding-right:60px}
+    .fmt{min-height:auto;padding:26px 32px 32px}
+    .fmt h3{margin-top:20px;font-size:26px}
+    .fmt-meta{padding-right:64px}
     .about-grid{grid-template-columns:1fr;gap:36px}
     .portrait{max-width:280px}
     .about-highlight{font-size:20px!important;padding-top:24px;margin-top:28px!important}
@@ -654,9 +670,22 @@
         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
       </span>
     </a>
-    <button class="burger" aria-label="Меню"><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
   </div>
 </header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#about">О Марине</a>
+  <a href="#room">Что происходит</a>
+  <a href="#formats">Форматы</a>
+  <a href="#contact">Контакты</a>
+  <a href="#contact" class="cta-pill">
+    Записаться
+    <span class="arrow">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+    </span>
+  </a>
+</div>
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero">
@@ -903,6 +932,21 @@
     el.style.transitionDelay = (i % 5) * 80 + 'ms';
     io.observe(el);
   });
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  const toggleMenu = (open) => {
+    const isOpen = open ?? !menu.classList.contains('open');
+    menu.classList.toggle('open', isOpen);
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    menu.setAttribute('aria-hidden', String(!isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
+  burger.addEventListener('click', () => toggleMenu());
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
 
 </script>
 
